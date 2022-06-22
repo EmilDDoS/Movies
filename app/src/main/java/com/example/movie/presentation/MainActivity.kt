@@ -19,10 +19,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val fragment = PopulateMoviesFragment()
+        /*val fragment = PopulateMoviesFragment()
         supportFragmentManager.beginTransaction()
             .add(binding.container.id, fragment)
-            .commit()
+            .commit()*/
 
     }
 }
