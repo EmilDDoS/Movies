@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Movie</string>
     <string name="movie_name">Movie name</string>
+    <string name="random_movie">Random</string>
+    <string name="popular_movie">Popular</string>
+    <string name="liked_movies">Liked</string>
 </resources>
