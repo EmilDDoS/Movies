@@ -16,7 +16,7 @@ class PopulateAdapter :
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         val movie = getItem(position)!!
-        holder.view.nameMovie.text = movie.original_title
+        holder.view.nameMovie.text = movie.title
         holder.view.dateRelease.text = "Дата релиза: " + movie.release_date
         holder.view.popularityMovie.text = "Рейтинг: " + movie.vote_average.toString()
         Glide.with(holder.itemView.context)
