@@ -9,16 +9,18 @@ import com.bumptech.glide.Glide
 import com.example.movie.data.entity.MovieDto
 import com.example.movie.databinding.AdapterMovieBinding
 
-class PopulateAdapter : PagingDataAdapter<MovieDto, PopulateAdapter.MovieViewHolder>(MovieComparator) {
+class PopulateAdapter :
+    PagingDataAdapter<MovieDto, PopulateAdapter.MovieViewHolder>(MovieComparator) {
 
-    class MovieViewHolder(val view: AdapterMovieBinding): RecyclerView.ViewHolder(view.root)
+    class MovieViewHolder(val view: AdapterMovieBinding) : RecyclerView.ViewHolder(view.root)
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         val movie = getItem(position)!!
         holder.view.nameMovie.text = movie.original_title
-        holder.view.descriptionMovie.text = movie.overview
+        holder.view.dateRelease.text = "Дата релиза: " + movie.release_date
+        holder.view.popularityMovie.text = "Рейтинг: " + movie.vote_average.toString()
         Glide.with(holder.itemView.context)
-            .load("https://image.tmdb.org/t/p/w300"+movie.poster_path)
+            .load("https://image.tmdb.org/t/p/w300" + movie.poster_path)
             .into(holder.view.imageMovie)
     }
 
@@ -28,7 +30,7 @@ class PopulateAdapter : PagingDataAdapter<MovieDto, PopulateAdapter.MovieViewHol
         return MovieViewHolder(binding)
     }
 
-    object MovieComparator: DiffUtil.ItemCallback<MovieDto>() {
+    object MovieComparator : DiffUtil.ItemCallback<MovieDto>() {
         override fun areItemsTheSame(oldItem: MovieDto, newItem: MovieDto): Boolean {
             return oldItem.original_title == newItem.original_title
         }
