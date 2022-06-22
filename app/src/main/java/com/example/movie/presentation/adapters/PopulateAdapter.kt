@@ -8,9 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.movie.data.entity.MovieDto
 import com.example.movie.databinding.AdapterMovieBinding
+import com.example.movie.domain.entity.Movie
 
 class PopulateAdapter :
-    PagingDataAdapter<MovieDto, PopulateAdapter.MovieViewHolder>(MovieComparator) {
+    PagingDataAdapter<Movie, PopulateAdapter.MovieViewHolder>(MovieComparator) {
 
     class MovieViewHolder(val view: AdapterMovieBinding) : RecyclerView.ViewHolder(view.root)
 
@@ -30,12 +31,12 @@ class PopulateAdapter :
         return MovieViewHolder(binding)
     }
 
-    object MovieComparator : DiffUtil.ItemCallback<MovieDto>() {
-        override fun areItemsTheSame(oldItem: MovieDto, newItem: MovieDto): Boolean {
-            return oldItem.original_title == newItem.original_title
+    object MovieComparator : DiffUtil.ItemCallback<Movie>() {
+        override fun areItemsTheSame(oldItem: Movie, newItem: Movie): Boolean {
+            return oldItem.title == newItem.title
         }
 
-        override fun areContentsTheSame(oldItem: MovieDto, newItem: MovieDto): Boolean {
+        override fun areContentsTheSame(oldItem: Movie, newItem: Movie): Boolean {
             return oldItem == newItem
         }
     }
