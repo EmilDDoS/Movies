@@ -1,7 +1,9 @@
 package com.example.movie.domain.repository
 
-import com.example.movie.data.entity.PopulateMoviesDto
+import androidx.lifecycle.LiveData
+import androidx.paging.PagingData
+import com.example.movie.data.entity.MovieDto
 
 interface MovieRepository {
-    suspend fun getPopularMovies(): PopulateMoviesDto
+    suspend fun getPopularMovies(): LiveData<PagingData<MovieDto>>
 }
