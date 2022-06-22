@@ -16,6 +16,7 @@ class PopulateAdapter : PagingDataAdapter<MovieDto, PopulateAdapter.MovieViewHol
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         val movie = getItem(position)!!
         holder.view.nameMovie.text = movie.original_title
+        holder.view.descriptionMovie.text = movie.overview
         Glide.with(holder.itemView.context)
             .load("https://image.tmdb.org/t/p/w300"+movie.poster_path)
             .into(holder.view.imageMovie)
