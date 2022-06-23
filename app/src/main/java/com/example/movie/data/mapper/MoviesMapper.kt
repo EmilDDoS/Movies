@@ -14,7 +14,8 @@ class MoviesMapper {
                 poster_path = it.poster_path,
                 release_date = it.release_date,
                 vote_average = it.vote_average,
-                genre_ids = it.genre_ids
+                genre_ids = it.genre_ids,
+                id = it.id
             )
         }
     }
