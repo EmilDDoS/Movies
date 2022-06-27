@@ -6,5 +6,9 @@ import com.example.movie.data.entity.MovieDto
 import com.example.movie.domain.entity.Movie
 
 interface MovieRepository {
+
     suspend fun getPopularMovies(): LiveData<PagingData<Movie>>
+
+    suspend fun getLikedMovies(): LiveData<PagingData<Movie>>
+
 }

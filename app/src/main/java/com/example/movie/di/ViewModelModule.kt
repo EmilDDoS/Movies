@@ -1,7 +1,9 @@
 package com.example.movie.di
 
 import androidx.lifecycle.ViewModel
+import com.example.movie.domain.interactor.LikedUseCase
 import com.example.movie.domain.interactor.PopularUseCase
+import com.example.movie.presentation.screens.liked.LikedMoviesViewModel
 import com.example.movie.presentation.screens.populate.PopulateMoviesViewModel
 import dagger.Module
 import dagger.Provides
@@ -19,4 +21,14 @@ class ViewModelModule {
     ): ViewModel {
         return PopulateMoviesViewModel(popularUseCase)
     }
+
+    @IntoMap
+    @ClassKey(LikedMoviesViewModel::class)
+    @Provides
+    fun getLikedViewModel(
+        likedUseCase: LikedUseCase
+    ): ViewModel {
+        return LikedMoviesViewModel(likedUseCase)
+    }
+
 }

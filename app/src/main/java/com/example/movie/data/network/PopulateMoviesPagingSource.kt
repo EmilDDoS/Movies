@@ -1,11 +1,8 @@
-package com.example.movie.data
+package com.example.movie.data.network
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.example.movie.data.entity.MovieDto
 import com.example.movie.data.mapper.MoviesMapper
-import com.example.movie.data.network.ApiFactory
-import com.example.movie.data.network.PopularApi
 import com.example.movie.domain.entity.Movie
 
 class PopulateMoviesPagingSource(
